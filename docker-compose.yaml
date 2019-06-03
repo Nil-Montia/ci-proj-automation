@@ -49,6 +49,11 @@ services:
     image: nilmontia/dashboard-service
   gateway:
     image: nilmontia/gateway
+    depends-on:
+    - dashboard-client
+    - dashboard-service
+    - authentication-client
+    - authentication-service
   role-service:
     image: nilmontia/role-service
   group-sevice:
