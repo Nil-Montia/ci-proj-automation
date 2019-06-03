@@ -56,7 +56,7 @@ services:
     - authentication-service
   role-service:
     image: nilmontia/role-service
-  group-sevice:
+  group-service:
     image: nilmontia/group-service
 volumes:
   mongo:
