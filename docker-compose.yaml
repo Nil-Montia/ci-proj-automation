@@ -1,0 +1,58 @@
+version:'3.7'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    volumes:
+      - type: volume
+        source: mongo
+        target: /data/db
+   aes-encryption-service:
+     image: nilmontia/aes-encryption-service
+   mongo-service:
+     image: nilmontia/mongo-service
+     depends_on:
+     - mongo
+   secret-service:
+     image: nilmontia/secret-service
+     depends_on:
+     -  mongo
+   email-service:
+     image: nilmontia/email-service
+     depends_on:
+     - mongo-service
+     - aes-encryption-service
+   account-service:
+     image: nilmontia/account-service
+     depends_on:
+     - secret-service
+     - mongo-service
+   session-token-service:
+     image: nilmontia/session-token-service
+     depends_on:
+     - mongo-service
+     - aes-encryption-service
+   dashboard-service:
+     image: nilmontia/dashboard-service
+     depends_on:
+     - account-service
+     - session-token-service
+   authentication-service:
+     image: nilmontia/authentication-service
+     depends_on:
+     - account-service
+     - session-token-service
+     - email-service
+   dashboard-client:
+     image: nilmontia/dashboard-client
+   authentication-client:
+     image: nilmontia/dashboard-service
+   gateway:
+     image: nilmontia/gateway
+   role-service:
+     image: nilmontia/role-service
+   group-sevice:
+     image: nilmontia/group-service
+     
+     
+   
