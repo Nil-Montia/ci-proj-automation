@@ -49,6 +49,9 @@ services:
     image: nilmontia/authentication-client
   gateway:
     image: nilmontia/gateway
+    ports:
+    - target: 80
+      published: 80
     depends_on:
     - dashboard-client
     - dashboard-service
