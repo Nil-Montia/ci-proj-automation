@@ -19,6 +19,9 @@ services:
     -  mongo
   email-service:
     image: nilmontia/email-service
+    environment:
+      GMAIL_USER: ${GMAIL_USER}
+      GMAIL_PASS: ${GMAIL_PASS}
     depends_on:
     - mongo-service
     - aes-encryption-service
