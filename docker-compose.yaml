@@ -46,7 +46,7 @@ services:
   dashboard-client:
     image: nilmontia/dashboard-client
   authentication-client:
-    image: nilmontia/dashboard-service
+    image: nilmontia/authentication-client
   gateway:
     image: nilmontia/gateway
     depends_on:
