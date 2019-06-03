@@ -1,4 +1,4 @@
-export GMAIL_USER="myemail.noreply@gmail.com"
-export GMAIL_PASS="password"
+export GMAIL_USER="ilovedocker123@gmail.com"
+export GMAIL_PASS="ilovedocker1!"
 export SERVICE_NAME="Example Project"
-export ACTIVATION_LINK="http://localhost/authentication/api/activate"
+export ACTIVATION_LINK="http://35.242.243.64/authentication/api/activate"
